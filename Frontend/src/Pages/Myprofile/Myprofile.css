@@ -1,0 +1,53 @@
+.upload_img{
+    /* width: 180px; */
+    border-radius: 20px;
+}
+.profile-hr{
+    border:1px solid gray;
+}
+.name{
+    font-weight: 400;
+    font-size: 28px;
+}
+.edit-form input{
+    font-size: 14.4px;
+}
+.contact-information h3,.basic-information h3{
+    text-decoration: underline;
+  color:dimgray;
+  font-weight: 400;
+}
+.headers{
+    font-size:17px;
+    font-weight: 500;
+}
+/* css for form */
+.edit-form{
+    box-shadow: 1px 2px 4px 2px #5f6fff;
+    border-radius: 20px;
+    margin:auto;
+}
+.input-form input{
+    border-radius: 10px;
+    padding:4px;
+    border:1px solid #5f6fff;
+}
+
+.input-form input:active{
+    border:1px solid #5f6fff;
+}
+.form-gender input{
+    width:20px;
+    font-size:15px;
+}
+.save-btn{
+    height:40px;
+    font-size: 16px;
+    border-radius: 10px;
+    border:1px solid blue;
+}
+.save-btn:active{
+    border: none;
+    background-color: #5F6FFF;
+    color:white;
+}

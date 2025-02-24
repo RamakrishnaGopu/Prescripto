@@ -1,0 +1,41 @@
+const mongoose=require('mongoose');
+const userSchema=new mongoose.Schema({
+    fullname:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+       type:String,
+       required:true 
+    },
+    gender:{
+        type:String,
+        default:null
+    }
+    ,
+    dob:{
+        type:String,
+        default:null
+    },
+    phonenum:{
+        type:String,
+        default:"0000000000"
+    },
+    address:{
+      type:String,
+      default:null
+    },
+    appointCart:{
+        type:Object
+    },
+    dateCart:{
+        type:Array
+    }
+})
+const User=mongoose.model('presUser',userSchema);
+module.exports=User;

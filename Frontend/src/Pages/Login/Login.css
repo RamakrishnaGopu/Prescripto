@@ -1,0 +1,54 @@
+.loginbox{
+    width:30%;
+    /* height: 420px; */
+    background-color: #FFFFFF;
+    box-shadow:1px 1px 1px 2px rgb(207, 206, 206);
+    border-radius: 12px;
+    color:#4B5563;
+    margin:50px auto;
+    padding-left: 39px;
+    padding-top:40px;
+    padding-bottom:40px ;
+}
+.loginbox h2{
+    font-weight: 600;
+
+}
+.loginbox p{
+    margin-top: 3px;
+    font-size: 13.6px;
+}
+label{
+    font-size: 14px;
+}
+input{
+    height: 34px;
+    width: 90%;
+    font-size: 14.2px;
+}
+.forms{
+   display: flex;
+   flex-direction: column;
+   gap:10px;
+}
+.cbtn .btn{
+    width: 91%;
+    background-color:#5F6FFF;
+    color:white;
+    border:none;
+    height: 40px;
+    border-radius:9px;
+    font-size: 16px;
+}
+form .btn:hover{
+    background-color:#5F6FFF;
+    color:white;
+}
+.loginbox span{
+    color:#5F6FFF;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.log-error{
+    color:rgb(216, 48, 6);
+}

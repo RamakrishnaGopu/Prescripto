@@ -1,0 +1,49 @@
+.contact{
+    color:gray;
+}
+.fh2{
+    font-size: 24px;
+    font-weight: 500;
+    color: #4B5563;
+}
+span{
+    color:black;
+    font-weight: 600;
+}
+.inner img{
+  /* width:364px; */
+  height:364px;
+}
+.explore{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* gap:28px; */
+    /* margin-top: 2px; */
+    font-size: 14px;
+}
+.explore h2{
+    font-size: 18px;
+    color:#4B5563;
+    font-weight: 600;
+}
+.explore button{
+    font-size: 14px;
+}
+.exp-jobs:hover{
+    color:white;
+    background-color: black;
+    border:none;
+}
+/* .inner{
+    margin:50px auto;
+    display: flex;
+    gap:50px;
+} */
+/* .explore{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* gap:28px; */
+    /* margin-top: 2px; }
+ */

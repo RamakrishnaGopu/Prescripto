@@ -1,0 +1,14 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+*{
+    margin:0;
+    font-family: "Noto Sans", serif;
+    /* padding:0; */
+}
+body {
+    overflow-x: hidden;
+  }
+/* p{
+    line-height: 1.1;
+} */ 

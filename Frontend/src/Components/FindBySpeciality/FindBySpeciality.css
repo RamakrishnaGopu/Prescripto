@@ -1,0 +1,23 @@
+/* last appointment */
+/* .findbyspeciality{
+    margin:70px auto;
+    width:77%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+} */
+.spec-image{
+    width:100px;
+ }
+.findbyspeciality h2{
+    font-weight: 600;
+    font-size: 28px;
+}
+.find-para{
+    font-size: 13.8px;
+    /* text-align: center; */
+}
+.sepcial-para{
+    font-size:12.6px;
+}

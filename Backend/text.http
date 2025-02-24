@@ -1,0 +1,31 @@
+### get
+get http://localhost:3000/getdetails
+###post request
+post http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "fullname":"palli",
+    "email":"palli123@gmail.com",
+    "password":"palli123"
+}
+
+###post for login
+post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email":"bittu@gmail.com",
+    "password":"1234"
+}
+
+###post add to appointments
+post http://localhost:3000/addtoappointments
+Content-Type: application/json
+
+{
+    "email":"yogi@gmail.com",
+    "_id":"doc1"
+}
+###delete
+delete http://localhost:3000/remove/677ed1fb26cf9eee96e9e5ee

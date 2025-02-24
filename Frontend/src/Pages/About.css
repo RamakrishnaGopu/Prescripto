@@ -1,0 +1,45 @@
+.explore h2{
+    color:black;
+}
+.about-vision img{
+  height: 364px;
+}
+.para{
+    color:#4B5563;
+    font-size: 15px;
+    font-weight: 400;
+}
+.chooseh2{
+    font-size:22px;
+    color:#4B5563;
+}
+.boxes{
+    height:220px;
+}
+.box{
+    /* width:66.333%; */
+    /* border:0.000002px solid gray; */
+    box-shadow: 0.2px 0.2px 0.2px 0.8px #e5e2e2;
+    display: flex;
+    justify-content: center;
+    gap:30px;
+    flex-direction: column;
+    padding: 28px 40px;
+    color:#4B5563;
+}
+.box p,.box{
+   font-size: 15px;
+}
+.box:hover{
+    background-color: #5F6FFF;
+    color:white;
+    border:none;
+}
+/* .about-vision{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:50px auto;
+    width:80%;
+    gap:40px;
+} */

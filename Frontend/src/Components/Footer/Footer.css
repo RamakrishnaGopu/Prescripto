@@ -1,0 +1,29 @@
+.footer h2{
+    margin-top:12px;
+    font-size: 20px;
+    font-weight:500;
+}
+.logo div{
+    font-size: 15px;
+    margin-top: 18px;
+}
+.company ul{
+    cursor: pointer;
+}
+.copy p{
+    font-size: 14px;
+}
+/* .footer{
+    margin-top:80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+} */
+@media(max-width:768px){
+    .three,.logo p{
+        font-size: 13px;
+    }
+   .copy p{
+    font-size: 11px;
+   }
+}

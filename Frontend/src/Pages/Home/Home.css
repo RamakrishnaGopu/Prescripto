@@ -1,0 +1,148 @@
+/* first div */
+.bookapp{
+    border: none;
+    border-radius: 14px;
+    background-color: #6776fc;
+    content:fit-content;
+    padding:80px 60px 0px 60px;
+}
+.profiles div{
+    color:white;
+    font-size: 14px;
+}
+.profiles h1{
+    font-size: 48px;
+    font-weight: 600;
+    color:white;
+}
+.book-btn{
+    font-size: 14px;
+    height:42px;
+    background-color: #fff;
+    border-radius: 26px;
+    border:none;
+    color:#4B5563;
+    cursor: pointer;
+    transition:white 0.3s ease; 
+}
+
+.topdoctors h2{
+    font-size: 28px;
+    font-weight: 500;
+}
+.topdoct-para{
+    font-size: 13px;
+}
+/* more */
+.more{
+    text-align: center;
+}
+.more button{
+    width:10%;
+    height: 54px;
+    font-size: 17px;
+    border-radius: 38px;
+    border: none;
+    color: #4B5563;
+    background-color: #EAEFFF;
+    cursor: pointer;
+}
+.more button:hover{
+    color: #4B5563;
+    background-color: #EAEFFF;
+}
+/* trustdoctors last div */
+/* .trustedoc{
+  margin: 40px auto;
+} */
+
+.create-acc-btn{
+    font-size: 13.9px;
+    padding: 10px;
+    height:42px;
+    align-items: center;
+    border-radius: 26px;
+    border:none;
+    color:#4B5563;
+}
+@media(max-width:1100px){
+    .profiles button{
+        /* width:120px; */
+        font-size: 12px;
+    }
+}
+@media(max-width:992px){
+    .profiles h1{
+        font-size: 24px;
+    }
+    .profiles div p{
+        font-size: 12px;
+    }
+    .spec-image{
+        width:60px;
+     }
+     .doctors .doctor h3{
+        font-size: 12px;
+    }
+    .doctors .doctor p{
+        font-size: 11px;
+    }
+}
+@media(max-width:768px){
+    .bookapp, .profiles div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profiles button{
+        font-size: 9px;
+        height:30px;
+    }
+    .profiles button img{
+      display: none;
+    }
+    .profiles h1{
+        font-size: 20px;
+    }
+    .findbyspeciality h2{
+    font-size: 22px;
+    }
+    .findbyspeciality p{
+        font-size: 12px;
+    }
+    .doctors .doctor h3{
+        font-size: 10px;
+    }
+    .spec{
+        font-size: 9px;
+    }
+    .divpara .available{
+        font-size: 9px;
+    }
+    .divpara .green-dot{
+       width: 4px;
+       height:4px;
+       background-color: green;
+       border-radius: 50%;
+    }
+    .more .btn{
+        width:60px;
+        font-size: 13px;
+    }
+}
+/* .appointment:hover{
+    color:#4B5563;
+    background-color: #fff;
+    cursor: pointer;
+} */
+
+
+/* top doctors */
+/* d-flex justify-content-center flex-column gap-2 */
+/* .topdoctors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:60px auto;
+} */

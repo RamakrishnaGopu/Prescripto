@@ -1,0 +1,139 @@
+/* .my-appointments {
+    margin: 30px 104px;
+} */
+
+.my-appointments h1 {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.div {
+    /* margin: 30px auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; */
+    border-radius: 20px;
+    /* gap: 30px; */
+    /* flex-direction: column; */
+}
+
+/* .appointed-doctor .doct-info {
+    display: flex;
+    height: 210px;
+    align-items: center;
+    gap: 30px;
+} */
+
+.appointed-doctor {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* font-size: 16px; */
+    /* gap: 440px; */
+    /* height: 250px; */
+
+    border-radius: 18px;
+    border: none;
+    box-shadow: 1px 1px 2px 2px rgb(204, 201, 201);
+    align-items: center;
+}
+
+.appointed-doctor h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.appointed-doctor p {
+    font-size: 14px;
+}
+
+.doctor-img {
+    background-color: #EAEFFF;
+    border-radius: 18px 0px 0px 18px;
+}
+
+/* .appointment-btns {
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    margin-left:320px;
+    gap: 12px;
+    justify-content: center;
+} */
+
+.inside-appointments {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.inside-appointments .address {
+    color: rgb(4, 64, 99);
+}
+
+.btn1,
+.btn2,
+.btn3 {
+    height: 40px;
+    font-size: 13px;
+    padding: 8px;
+    cursor: pointer;
+    /* color: rgb(12, 75, 248); */
+    color: rgb(143, 138, 138);
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid rgb(216, 213, 213);
+}
+
+.btn1 {
+    padding: 4px 8px 4px 8px;
+    text-align: center;
+    background-color: #5F6FFF;
+    color: #fff;
+    /* border:none; */
+}
+.btn2:hover,.btn2:active{
+    color:white;
+    border: none;
+    background-color: rgb(201, 13, 13);
+}
+.pay-btns{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap:8px;
+}
+.pay-btns button{
+    width:142px;
+    height:36px ;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 0.3px solid rgb(216, 213, 213);
+}
+.pay-btns img{
+    height:18px;
+    border:none;
+    padding: 2px;
+}
+/* .stripe{
+    height:33px;
+} */
+.btn3 {
+    color: red;
+    border: 1px solid red;
+}
+
+.no-appoint {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.no-appoint button {
+    margin-top: 16px;
+    height: 36px;
+    color: rgb(12, 75, 248);
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #5F6FFF;
+    cursor: pointer;
+}
