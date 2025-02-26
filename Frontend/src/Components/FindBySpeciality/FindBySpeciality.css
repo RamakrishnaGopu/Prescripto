@@ -1,6 +1,12 @@
-.spec-image{
-    width:100px;
- }
+.spec-image {
+    width: 100px;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.spec-image:hover {
+    transform: scale(1.1);
+}
+
 .findbyspeciality h2{
     font-weight: 600;
     font-size: 28px;

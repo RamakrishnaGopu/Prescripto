@@ -40,8 +40,7 @@ function MyAppointments() {
 
       })
       .catch(err => {
-        toast.error("error occuuredd");
-        console.log(err)
+        toast.error(`error message- ${err.message}` );
       })
   }
 

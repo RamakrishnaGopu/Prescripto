@@ -27,7 +27,10 @@ app.use(cookieParser());
 app.use(express.json())
 // app.use()
 
-mongoose.connect(url)
+mongoose.connect(url,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 .then((res)=>{
    app.listen(port,()=>{console.log("server started at port 3000")})
    console.log("db connection is succeded");

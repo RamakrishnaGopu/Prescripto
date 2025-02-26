@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import {doctors} from '../../assets/assets/assets_frontend/assets'
 import './Doctors.css'
-import GetDoctorCard from '../GetDoctorCard'
+import GetDoctorCard from '../GetDoctors/GetDoctorCard'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { loginContext } from '../../Context/ProfileContext'
@@ -37,7 +37,7 @@ function Doctors() {
     special_doct.length!=0? <div className="doctors mt-4 d-flex w-100 justify-content-start flex-md-wrap gap-3">{ 
       
       special_doct.map((ele,idx)=>{
-      return <GetDoctorCard state={ele}/>})
+      return <GetDoctorCard key={ele._idx}  state={ele}/>})
       
     }</div>
  :
@@ -45,7 +45,7 @@ function Doctors() {
  <div className="doctors mt-4 w-100 d-flex justify-content-start gap-4 flex-wrap"> 
      {
         doctors.map((ele,idx)=>{
-          return <GetDoctorCard state={ele}/>
+          return <GetDoctorCard key={ele._idx}  state={ele}/>
         })
       }
         </div>

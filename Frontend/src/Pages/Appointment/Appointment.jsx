@@ -79,16 +79,10 @@ function Appointment() {
     <div className='about-doct container mt-5 p-0'>
       {/* first one  about the doctor*/}
       <div className="doct-appointment d-flex gap-4">
-        {/* <div className="doct-appointment row row-cols-1 row-cols-sm-1 row-cols-lg-2 gap-3"> */}
-        <div className="doct-img w-100 h-75 mb-0">
-          {/* <div className="doct-img col-4 w-25 h-75 mb-0"> */}
-
-          <img className='w-100 mb-0' src={doct?.image} alt="" />
-          {/* <img className='w-75 h-75 mb-0' src={doct.image} alt="" /> */}
-
+        <div className="doct-img  mb-0">   
+          <img className=' mb-0' src={doct?.image} alt="" />
         </div>
-        <div className="doctinfo h-75">
-          {/* <div className="doctinfo col-8 h-75"> */}
+        <div className="doctinfo">
 
           <div className="one d-flex gap-2 align-items-center">
             <h1>{doct.name}</h1>
@@ -108,8 +102,7 @@ function Appointment() {
       </div>
 
       {/* booking slots only when the user is logedin */}
-      {
-        userLogin &&
+    
         <div className="booking-slots d-flex flex-column gap-3 mt-5">
           <p className='slot'>Bookings Slots</p>
           <div className="inside-slots d-flex gap-4">
@@ -154,12 +147,8 @@ function Appointment() {
           <button className='book-appoint-btn w-25' onClick={() => {
             handleAppointments(doct)
           }}>Book an appointment</button>
-
-          {/* <button className='book-appoint-btn' onClick={()=>{setAppointedDoc(appointedDoc=>[...appointedDoc,doct]);navi('/my-appointments')}}>Book an appointment</button> */}
         </div>
-      }
-
-
+      
 
       {/* related doctors */}
       <RelatedDoctors doct={doct} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { assets } from '../assets/assets/assets_frontend/assets'
+import { assets } from '../../assets/assets/assets_frontend/assets'
 import './About.css'
 function About() {
   return (
@@ -9,7 +9,7 @@ function About() {
   <div className="col-lg-4 col-sm-12 px-0">
     <img className="img-fluid w-sm-25 mx-auto" src={assets.about_image} alt="About Prescripto" />
   </div>
-  <div className="explore col-lg-8 col-sm-12 mt-3 d-flex flex-column gap-4 px-0">
+  <div className="explore col-lg-8 col-sm-12 mt-3 d-flex flex-column  gap-4 px-0">
     <p className="para">
       Welcome to Prescripto, your trusted partner in managing your healthcare needs conveniently and efficiently. At Prescripto, we understand the challenges individuals face when it comes to scheduling doctor appointments and managing their health records.
     </p>

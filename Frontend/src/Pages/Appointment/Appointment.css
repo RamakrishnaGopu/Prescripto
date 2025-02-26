@@ -79,3 +79,120 @@
     color: white;
     background-color: #5F6FFF;
 }
+@media screen and (max-width: 1024px) {
+    .doct-appointment {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .doct-img {
+        /* width: 80%; */
+        width: 54%;
+        height: auto;
+    }
+
+    .doctinfo {
+        /* width: 90%; */
+        width: 70%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .booking-slots {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .book-appoint-btn {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .doct-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .doctinfo {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .booking-slots {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inside-slots {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Noone, .other, .time {
+        width: 70px;
+        height: 50px;
+    }
+
+    .book-appoint-btn {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .doct-appointment {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .doct-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .doctinfo {
+        width: 60%;
+        padding: 10px;
+    }
+
+    .one h1 {
+        font-size: 22px;
+    }
+
+    .two p {
+        font-size: 14px;
+    }
+
+    .tree p {
+        font-size: 14px;
+    }
+
+    .booking-slots {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .inside-slots {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .Noone, .other, .time {
+        width: 60px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .book-appoint-btn {
+        width: 80%;
+        font-size: 13px;
+    }
+}

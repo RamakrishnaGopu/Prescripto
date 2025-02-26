@@ -1,15 +1,16 @@
-import React, { useContext, useState } from 'react'
-import './Signup.css'
+import React, { useContext } from 'react'
 import {toast} from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { loginContext } from '../../Context/ProfileContext';
 
 function Signup() {
     const navi = useNavigate();
+    const {API_URL}=useContext(loginContext)
     const { register, handleSubmit, formState: { errors }} = useForm();
     function handlesign(user) {
         if (user !== null) {
-            fetch("http://localhost:3000/signup", {
+            fetch(`${API_URL}/signup`, {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
@@ -39,10 +40,10 @@ function Signup() {
 
                 <p>please signup to book an appointment</p>
 
-                <form onSubmit={handleSubmit(handlesign)}>
+                <form className='form' onSubmit={handleSubmit(handlesign)}>
 
                     <div className="forms">
-                        <label>Full Name</label>
+                        <label className=''>Full Name</label>
                         <input type="text" {...register('fullname', { required: true })} id="fullname" />
                         {
                             errors.fullname?.type == 'required' && <p className="log-error">*name is required</p>

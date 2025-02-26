@@ -22,7 +22,6 @@ function Login() {
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
-            // console.log("message", data);''
             // save the userDetails in the local storage
             localStorage.setItem("currUser", JSON.stringify(data.payLoad));
             // save the token in the local storage

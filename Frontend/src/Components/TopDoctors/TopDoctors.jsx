@@ -1,6 +1,6 @@
 import React from 'react'
 import { doctors } from '../../assets/assets/assets_frontend/assets'
-import GetDoctorCard from '../../Pages/GetDoctorCard';
+import GetDoctorCard from '../../Pages/GetDoctors/GetDoctorCard';
 function TopDoctors() {
   return (
 
@@ -14,7 +14,7 @@ function TopDoctors() {
       <div className="doctors mt-4 d-flex justify-content-center flex-md-wrap gap-5">
         {
           doctors.slice(0, 8).map((ele, idx) => {
-            return <GetDoctorCard state={ele}/>
+            return <GetDoctorCard key={ele._idx} state={ele}/>
           })
         }
       </div>
