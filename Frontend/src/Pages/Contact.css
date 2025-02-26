@@ -11,15 +11,9 @@ span{
     font-weight: 600;
 }
 .inner img{
-  /* width:364px; */
   height:364px;
 }
 .explore{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    /* gap:28px; */
-    /* margin-top: 2px; */
     font-size: 14px;
 }
 .explore h2{
@@ -35,15 +29,3 @@ span{
     background-color: black;
     border:none;
 }
-/* .inner{
-    margin:50px auto;
-    display: flex;
-    gap:50px;
-} */
-/* .explore{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    /* gap:28px; */
-    /* margin-top: 2px; }
- */

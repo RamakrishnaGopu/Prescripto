@@ -5,8 +5,7 @@ function About() {
   return (
 <div className='about container mt-5'>
      <h2 className='fh2 text-center'>ABOUT  <span>US</span></h2>
-      {/* <div className="about-vision d-flex justify-content-center align-items-center mt-5 gap-4 w-100"> */}
-    <div className="about-vision row row-cols-1 row-cols-lg-2 mt-5">
+      <div className="about-vision d-flex justify-content-center align-items-center mt-5 gap-4 w-100">
   <div className="col-lg-4 col-sm-12 px-0">
     <img className="img-fluid w-sm-25 mx-auto" src={assets.about_image} alt="About Prescripto" />
   </div>

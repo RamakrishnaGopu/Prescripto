@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import './Signup.css'
+import {toast} from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 function Signup() {
     const navi = useNavigate();
-    const [errs,setErrors]=useState({error:null});
     const { register, handleSubmit, formState: { errors }} = useForm();
     function handlesign(user) {
         if (user !== null) {
@@ -21,13 +21,15 @@ function Signup() {
                 .then((data) => {
                     console.log(data)
                     if(data.success){
+                toast.success("signup successful")
                     navi('/login');
                     }
                     else{
-                        setErrors(errs=>({...errs,error:data.message}))
+                        toast.error(data.message)
+                        
                     }
                 })
-                .catch((err) => setErrors(errs=>({...errs,error:err.message})))
+                .catch((err) => {toast.error(err.message)})
         }
     }
     return (
@@ -61,10 +63,7 @@ function Signup() {
                         }
                         
                     </div>
-                    {
-                          errs.length!==0? <p className='log-error'>{errs.error}</p> :<></>
-                    }
-                    <div className='cbtn'>
+                    <div className='cbtn mt-3'>
                         <button className='btn' >
                             Create account
                         </button>

@@ -1,12 +1,24 @@
 import React, { useContext } from 'react';
 import './Navbar.css'; 
 import { loginContext } from '../../Context/ProfileContext';
+import {toast} from 'react-hot-toast';
 import { assets } from '../../assets/assets/assets_frontend/assets';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 function Navbar() {
-  const { name, setName, userLogin, setUserLogin } = useContext(loginContext);
+
+  const {name, setName, userLogin, setUserLogin,setSelectedSpecialist } = useContext(loginContext);
   const navi = useNavigate();
+  // fun to handle logout
+  function handleLogout(){
+        setName('none'); 
+        setUserLogin(false); 
+        // remove thelocalstorage
+        localStorage.removeItem('currUser');
+        // remove the token
+        localStorage.removeItem('jwtToken');
+  }
+
 
   return (
     <div className="navbar-total container">
@@ -16,7 +28,7 @@ function Navbar() {
         <img
           className="logo nav-item img-fluid"
           src={assets.logo}
-          onClick={() =>{setName('home'); navi('/')}}
+          onClick={() =>{setName('home');setSelectedSpecialist("all"); navi('/')}}
           alt="Logo"
         />
 
@@ -25,25 +37,25 @@ function Navbar() {
 
           <div>
             <NavLink className="link text-decoration-none list-unstyled" to="/">
-              <li onClick={() => setName('home')}>HOME</li>
+              <li onClick={() => {setName('home');setSelectedSpecialist("all")}}>HOME</li>
             </NavLink>
             {name === 'home' && <hr className='below-hr' />}
           </div>
           <div>
             <NavLink className="link text-decoration-none list-unstyled" to="/doctors/null">
-              <li onClick={() => setName('alldoct')}>ALL DOCTORS</li>
+              <li onClick={() => {setName('alldoct');setSelectedSpecialist("all")}}>ALL DOCTORS</li>
             </NavLink>
             {name === 'alldoct' && <hr className='below-hr' />}
           </div>
           <div>
             <NavLink className="link text-decoration-none list-unstyled" to="/about">
-              <li onClick={() => setName('about')}>ABOUT</li>
+              <li onClick={() => {setName('about');setSelectedSpecialist("all")}}>ABOUT</li>
             </NavLink>
             {name === 'about' && <hr className='below-hr' />}
           </div>
           <div>
             <NavLink className="link text-decoration-none list-unstyled" to="/contact">
-              <li onClick={() => setName('contact')}>CONTACT</li>
+              <li onClick={() => {setName('contact');setSelectedSpecialist("all")}}>CONTACT</li>
             </NavLink>
             {name === 'contact' && <hr className='below-hr' />}
           </div>
@@ -89,7 +101,7 @@ function Navbar() {
                   <a
                     className="dropdown-item"
                     href="#"
-                    onClick={() => { setName('none'); setUserLogin(false); }}
+                    onClick={() => {handleLogout()}}
                   >
                     Logout
                   </a>

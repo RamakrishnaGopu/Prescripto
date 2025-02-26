@@ -1,63 +1,78 @@
 import React, { useContext, useState } from 'react'
-// import swal from 'sweetalert';
+import { toast } from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom';
 import { assets } from '../../assets/assets/assets_frontend/assets';
 import { doctors } from '../../assets/assets/assets_frontend/assets'
 import './Appointment.css'
 import RelatedDoctors from '../../Components/RelatedDoctors/RelatedDoctors';
 import { loginContext } from '../../Context/ProfileContext';
+import { getDaysArray, getTimesArray } from '../../Utils/getDateAndTime';
 
 function Appointment() {
   //to get date
-  const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
-  const time = ["09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","01:00"]
+  const days = getDaysArray();
+  const time = getTimesArray();
+
   const currentDate = new Date();
   // to get time of appointment
   const [appDay, setAppDay] = useState({ date: null, day: null, time: null });
-  console.log("i am appday", appDay)
+
   const [showTime, setShowTime] = useState(false);
   // const d
   const navi = useNavigate();
-  const { userDetails, userLogin, handleCart } = useContext(loginContext)
 
+  const { API_URL, userDetails, userLogin, setAppointedDoc } = useContext(loginContext)
+
+  // get the docId
   const { docId } = useParams();
-  const doct = doctors.find((item) => docId === item._id);
-  console.log(doct);
+
+  const doct = doctors.find((item) => Number(docId) === item._idx);
+
+
   function handleAppointments(doct) {
-    if (userDetails != null) {
+    try {
+
       if (appDay.date != null && appDay.time != null) {
         const obj = {
           email: userDetails.email,
-          _id: doct._id,
-          appointDate: appDay
+          doc: doct,
+          date: appDay.date,
+          day: appDay.day,
+          time: appDay.time
         }
-        fetch('http://localhost:3000/addtoappointments', {
+        fetch(`${API_URL}/addtoappointments`, {
           method: "POST",
+          credentials: "include",  // Allow sending cookies
           headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-          , body: JSON.stringify(obj)
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            "Authorization": `Bearer ${localStorage.getItem("jwtToken")}`,  
+          },
+        body:JSON.stringify(obj)
         }).then((res) => res.json())
           .then((data) => {
             if (data.success) {
               // console.log(data.payLoad);
-              console.log("message is", data.message);
-              handleCart(data.payLoad);
-              // setAppointedDoc([...appointedDoc,doct]);
+              toast.success(data.message);
+              // set the updated user
+              localStorage.setItem("currUser", JSON.stringify(data.payLoad));
+              // update the appointments
+              setAppointedDoc([...data.payLoad.appointCart]);
+              // navigate to the my-appointments
               navi('/my-appointments');
             } else {
-              alert("please login to book an appoinment");
+              toast.error(data.message);
             }
 
           })
           .catch(err => console.log(err))
       }
       else {
-        window.alert("please book a slot of time or date");
+        toast.error("please book a slot of time or date");
       }
-    } else {
-      window.alert("please login to book an appointment")
+
+    } catch (err) {
+      toast.error(err?.message)
     }
   }
   return (
@@ -68,7 +83,7 @@ function Appointment() {
         <div className="doct-img w-100 h-75 mb-0">
           {/* <div className="doct-img col-4 w-25 h-75 mb-0"> */}
 
-          <img className='w-100 mb-0' src={doct.image} alt="" />
+          <img className='w-100 mb-0' src={doct?.image} alt="" />
           {/* <img className='w-75 h-75 mb-0' src={doct.image} alt="" /> */}
 
         </div>
@@ -92,58 +107,59 @@ function Appointment() {
 
       </div>
 
-      {/* booking slots */}
-      <div className="booking-slots d-flex flex-column gap-3 mt-5">
-        <p className='slot'>Bookings Slots</p>
-        <div className="inside-slots d-flex gap-4">
-          {
-            days.map((ele, idx) => {
-              if ((currentDate.getDay() + idx) % 7 == 0) {
-                return <div className='Noone' key={idx}></div>
-              }
-              return <div className="other d-flex flex-column gap-0 justify-content-center align-items-center" onClick={() => {
-                if (userLogin == false) {
-                  alert("please login to book an appointment")
-                } else {
-                  setAppDay(appDay => ({ ...appDay, day: days[(currentDate.getDay() + idx + 6) % 7], date: currentDate.getDate() + idx })); setShowTime(true)
+      {/* booking slots only when the user is logedin */}
+      {
+        userLogin &&
+        <div className="booking-slots d-flex flex-column gap-3 mt-5">
+          <p className='slot'>Bookings Slots</p>
+          <div className="inside-slots d-flex gap-4">
+            {
+              days.map((ele, idx) => {
+                if ((currentDate.getDay() + idx) % 7 == 0) {
+                  return <div className='Noone' key={idx}></div>
                 }
-              }} key={idx}>
-                <p className='m-0'>{days[(currentDate.getDay() + idx + 6) % 7]} </p>
-                <p className='m-0'>{currentDate.getDate() + idx}</p>
-              </div>
-            })
-          }
-        </div>
-        {
-          showTime === true ?
-            <div className="inside-slots d-flex gap-3 align-items-center">
-              {
-                time.map((ele,idx)=>{
-                  return <div className='time' key={idx} onClick={() => {
-                    if (userLogin == false) {
-                      alert("please login to book an appointment")
-                    } else {
-                      setAppDay(appDay => ({ ...appDay, time: ele })
-                      )
-                    }
-                  }}>
-                  <p className='d-flex justify-content-center align-content-center mt-1'>{ele}</p>
+                return <div className="other d-flex flex-column gap-0 justify-content-center align-items-center" onClick={() => {
+                  if (userLogin == false) {
+                    toast.error("please login to book an appointment")
+                  } else {
+                    setAppDay(appDay => ({ ...appDay, day: days[(currentDate.getDay() + idx + 6) % 7], date: currentDate.getDate() + idx })); setShowTime(true)
+                  }
+                }} key={idx}>
+                  <p className='m-0'>{days[(currentDate.getDay() + idx + 6) % 7]} </p>
+                  <p className='m-0'>{currentDate.getDate() + idx}</p>
                 </div>
-                })
-              }
-            </div> 
-        : <></>
-        }
-        <button className='book-appoint-btn w-25' onClick={() => {
-          if (userLogin) {
-            handleAppointments(doct)
-          } else {
-            alert("please,login to book an appoinment")
+              })
+            }
+          </div>
+          {
+            showTime === true ?
+              <div className="inside-slots d-flex gap-3 align-items-center">
+                {
+                  time.map((ele, idx) => {
+                    return <div className='time' key={idx} onClick={() => {
+                      if (userLogin == false) {
+                        toast.error("please login to book an appointment")
+                      } else {
+                        setAppDay(appDay => ({ ...appDay, time: ele })
+                        )
+                      }
+                    }}>
+                      <p className='d-flex justify-content-center align-content-center mt-1'>{ele}</p>
+                    </div>
+                  })
+                }
+              </div>
+              : <></>
           }
-        }}>Book an appointment</button>
+          <button className='book-appoint-btn w-25' onClick={() => {
+            handleAppointments(doct)
+          }}>Book an appointment</button>
 
-        {/* <button className='book-appoint-btn' onClick={()=>{setAppointedDoc(appointedDoc=>[...appointedDoc,doct]);navi('/my-appointments')}}>Book an appointment</button> */}
-      </div>
+          {/* <button className='book-appoint-btn' onClick={()=>{setAppointedDoc(appointedDoc=>[...appointedDoc,doct]);navi('/my-appointments')}}>Book an appointment</button> */}
+        </div>
+      }
+
+
 
       {/* related doctors */}
       <RelatedDoctors doct={doct} />

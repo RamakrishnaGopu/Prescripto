@@ -1,30 +1,12 @@
-/* .about-doct{
-    width:86%;
-    margin:40px auto;
-} */
-/* .doct-appointment{
-    display: flex;
-    gap:24px;
-} */
 .doct-img{
     background-color: #5F6FFF;
     border-radius: 12px;
 }
-/* .doct-img img{
-    height:341px;
-} */
 .doctinfo{
     border-radius: 12px;
     border:1px solid gray;
     padding:30px;
 }
-/* .one,.two{
-    display: flex;
-    font-size: 15px;
-    gap:10px;
-    align-items: center;
-    margin-top: 3px;
-} */
 .one h1{
     font-weight: 400;
 }
@@ -56,20 +38,11 @@
 }
 .booking-slots{
     margin-left: 30%;
-    /* margin-top: 40px; */
-    /* display: flex;
-    flex-direction: column;
-    gap:30px; */
 }
 .slot{
     font-size: 16px;
     color:#4B5563 ;
 }
-/* .inside-slots{
-    display: flex;
-    justify-content: center;
-    gap:20px;
-} */
 .Noone{
     margin-top:11px;
     width: 80px;
@@ -87,10 +60,6 @@
     border-radius:20px;
 }
 .other{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; */
     border: 1px solid gray;
     cursor: pointer;
     width:65px;

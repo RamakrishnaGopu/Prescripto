@@ -1,83 +1,84 @@
-/* .my-appointments {
-    margin: 30px 104px;
-} */
+
+.my-appointments {
+    margin: 30px auto;
+    max-width: 1100px;
+}
 
 .my-appointments h1 {
     font-weight: 400;
-    font-size: 25px;
+    font-size: 22px;
 }
 
-.div {
-    /* margin: 30px auto;
-    width: 100%;
+.appoint-div {
     display: flex;
-    justify-content: space-between; */
+    flex-direction: column;
+    gap: 20px;
     border-radius: 20px;
-    /* gap: 30px; */
-    /* flex-direction: column; */
 }
-
-/* .appointed-doctor .doct-info {
-    display: flex;
-    height: 210px;
-    align-items: center;
-    gap: 30px;
-} */
 
 .appointed-doctor {
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* font-size: 16px; */
-    /* gap: 440px; */
-    /* height: 250px; */
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
     border-radius: 18px;
     border: none;
     box-shadow: 1px 1px 2px 2px rgb(204, 201, 201);
+}
+
+.doct-info {
+    display: flex;
     align-items: center;
-}
-
-.appointed-doctor h2 {
-    font-size: 24px;
-    font-weight: 400;
-}
-
-.appointed-doctor p {
-    font-size: 14px;
+    gap: 30px;
+    width: 100%;
 }
 
 .doctor-img {
     background-color: #EAEFFF;
-    border-radius: 18px 0px 0px 18px;
+    border-radius: 18px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
-
-/* .appointment-btns {
-    display: flex;
-    margin-top: 30px;
-    flex-direction: column;
-    margin-left:320px;
-    gap: 12px;
-    justify-content: center;
-} */
 
 .inside-appointments {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    width: 100%;
+}
+
+.inside-appointments h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.inside-appointments p {
+    font-size: 14px;
 }
 
 .inside-appointments .address {
     color: rgb(4, 64, 99);
 }
 
+.appointment-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Buttons Styling */
 .btn1,
 .btn2,
 .btn3 {
+    width: 150px;
     height: 40px;
     font-size: 13px;
     padding: 8px;
     cursor: pointer;
-    /* color: rgb(12, 75, 248); */
     color: rgb(143, 138, 138);
     border-radius: 6px;
     background-color: #fff;
@@ -85,42 +86,40 @@
 }
 
 .btn1 {
-    padding: 4px 8px 4px 8px;
-    text-align: center;
     background-color: #5F6FFF;
     color: #fff;
-    /* border:none; */
 }
-.btn2:hover,.btn2:active{
-    color:white;
+
+.btn2:hover,
+.btn2:active {
+    color: white;
     border: none;
     background-color: rgb(201, 13, 13);
 }
-.pay-btns{
+
+.btn3 {
+    color: red;
+    border: 1px solid red;
+}
+
+.pay-btns {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-    gap:8px;
+    gap: 8px;
 }
-.pay-btns button{
-    width:142px;
-    height:36px ;
+
+.pay-btns button {
+    width: 142px;
+    height: 36px;
     border-radius: 4px;
     background-color: #fff;
     border: 0.3px solid rgb(216, 213, 213);
 }
-.pay-btns img{
-    height:18px;
-    border:none;
+
+.pay-btns img {
+    height: 18px;
     padding: 2px;
-}
-/* .stripe{
-    height:33px;
-} */
-.btn3 {
-    color: red;
-    border: 1px solid red;
 }
 
 .no-appoint {
@@ -136,4 +135,101 @@
     background-color: #fff;
     border: 1px solid #5F6FFF;
     cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .appointed-doctor {
+        padding: 15px;
+    }
+    .inside-appointments h2 {
+        font-size: 20px;
+    }
+     
+    .doct-info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .doctor-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .appointment-btns {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .btn2{
+        font-size:10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .my-appointments h1 {
+        font-size: 20px;
+    }
+    .appointed-doctor {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .doct-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .doctor-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .appointment-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .my-appointments h1 {
+        font-size: 18px;
+    }
+    .appointed-doctor {
+        padding: 6px;
+    }
+
+    .doctor-img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .inside-appointments h2 {
+        font-size: 18px;
+    }
+
+    .inside-appointments p {
+        font-size: 13px;
+    }
+
+    .btn1,
+    .btn2 {
+        font-size: 10px;
+        height: 36px;
+        max-width: 140px;
+    }
+
+    .pay-btns button {
+        width: 130px;
+        height: 34px;
+    }
+
+    .pay-btns img {
+        height: 16px;
+    }
 }

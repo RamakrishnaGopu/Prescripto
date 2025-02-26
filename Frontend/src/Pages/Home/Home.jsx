@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import {assets} from '../../assets/assets/assets_frontend/assets.js'
 import FindBySpeciality from '../../Components/FindBySpeciality/FindBySpeciality.jsx'
 import { Link, useNavigate } from 'react-router-dom'
+import {toast} from 'react-hot-toast'
 import './Home.css'
 import TopDoctors from '../../Components/TopDoctors/TopDoctors.jsx'
 import { loginContext } from '../../Context/ProfileContext.jsx'
 
 function Home() {
-  const {userLogin,setName}=useContext(loginContext)
+  const {userLogin,setName,setSelectedSpecialist}=useContext(loginContext)
   const navi=useNavigate()
   return (
     <div className='home'>
@@ -19,7 +20,11 @@ function Home() {
                 <p>Simply browse through our extensive list of trusted doctors,
                 schedule your appointment hassle-free.</p>
                </div>
-               <button onClick={()=>{navi('/doctors/null');setName("alldoct");window.alert("choose a specified doctor to book an appointment");scrollTo(0,0)}} className=" w-50 book-btn mt-3 mb-2">
+               <button onClick={()=>{
+                navi('/doctors/null');
+                setName("alldoct");
+                setSelectedSpecialist("all")
+                scrollTo(0,0)}} className=" w-50 book-btn mt-3 mb-2">
                 Book appointment
                 <img className='arrow img-fluid px-2' src={assets.arrow_icon} alt="" />
                </button>
@@ -34,7 +39,7 @@ function Home() {
 
 {/* more button */}
 <div className="more m-5">
-  <button className='btn' onClick={()=>{setName('alldoct');navi('/doctors/null');scrollTo(0,0)}}>more</button>
+  <button className='btn' onClick={()=>{setName('alldoct');setSelectedSpecialist("all");navi('/doctors/null');scrollTo(0,0)}}>more</button>
 </div>
 
 {/* last div create account */}
@@ -42,7 +47,7 @@ function Home() {
           <div className="profiles mt-3 mb-3">
                <h1 className='mt-5'>Book Appointment With 100+ Trusted Doctors</h1>
                {
-                userLogin===true?<></>:<Link to='/signup' className='linktologin text-decoration-none'><button onClick={()=>{setName('null');scrollTo(0,0)}} className="create-acc-btn mt-3 w-25">
+                userLogin===true?<></>:<Link to='/signup' className='linktologin text-decoration-none'><button onClick={()=>{setName('null');setSelectedSpecialist("all");scrollTo(0,0)}} className="create-acc-btn mt-3 w-25">
                 Create account
                </button></Link>  
                }

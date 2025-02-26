@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react'
 import './Myprofile.css'
 import { useForm } from 'react-hook-form';
+import {toast} from 'react-hot-toast'
 import { loginContext } from '../../Context/ProfileContext';
 import { useNavigate } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 import { assets } from '../../assets/assets/assets_frontend/assets';
-// import 'bootstrap/dist/js/bootstrap.bundle'
 
 function Myprofile() {
   // importing required state from context
@@ -35,8 +33,14 @@ function Myprofile() {
     if(data.success){
       setUserDetails(data.payLoad);
       setEdit(false);
+      toast.success("saved successfully");
+    }else{
+      toast.error(data.message);
     }
-  }).catch(err=>console.log(err))
+  }).catch(err=>{
+    console.log("err occurred while updating the data")
+    toast.error("error ",err?.message)
+  })
 
   }
   return (
@@ -140,24 +144,3 @@ function Myprofile() {
 }
 
 export default Myprofile
-
-
-
-
-// {/* sample */}
-// <div className="dropdown">
-//   <button
-//     className="btn btn-secondary dropdown-toggle"
-//     type="button"
-//     id="dropdownMenuButton"
-//     data-bs-toggle="dropdown"
-//     aria-expanded="false"
-//   >
-//     Dropdown button
-//   </button>
-//   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-//     <li><a className="dropdown-item" href="#">Action</a></li>
-//     <li><a className="dropdown-item" href="#">Another action</a></li>
-//     <li><a className="dropdown-item" href="#">Something else here</a></li>
-//   </ul>
-// </div>
